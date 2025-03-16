@@ -17,6 +17,7 @@
 #define ERR_MEMORY 2
 #define WARN_NO_CMDS 3
 #define ERR_TOO_MANY_COMMANDS 4
+#define ERR_CMD_ARGS_BAD 5 
 
 // Command characters
 #define PIPE_CHAR '|'
@@ -25,7 +26,7 @@
 #define APPEND_OUTPUT_CHAR '>>'
 
 // Prompt and shell-specific strings
-#define SH_PROMPT "dsh> "
+#define SH_PROMPT "dsh3> "
 #define EXIT_CMD "exit"
 
 // Limit the maximum number of commands in the pipeline
@@ -41,9 +42,8 @@ typedef struct cmd_buff
 } cmd_buff_t;
 
 typedef struct {
-    int num_cmds;
-    cmd_buff_t commands[CMD_MAX];  // ✅ Use `cmd_buff_t` instead of anonymous struct
     int cmd_count;
+    cmd_buff_t commands[CMD_MAX];  
 } command_list_t;
 
 
